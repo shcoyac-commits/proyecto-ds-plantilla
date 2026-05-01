@@ -1,0 +1,20 @@
+# Datos sensibles - nunca a GitHub
+data/raw/
+data/external/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# Environments
+.env
+*.env
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/ 

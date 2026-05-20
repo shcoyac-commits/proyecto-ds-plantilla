@@ -1,0 +1,7 @@
+Ticket_ID,Producto,Categoria,Cantidad,Precio_Unitario,fecha_venta
+1001,paracetamol,medicamento,2,25.5,2024-03-15
+1002,ibuprofeno,medicamento,1,35.0,2024-03-15
+1004,vitamina c,suplemento,2,45.0,2024-03-16
+1005,paracetamol,medicamento,2,25.5,2024-03-17
+1006,alcohol gel,higiene,1,32.0,2024-03-17
+1007,aspirina,medicamento,1,28.0,2024-03-18

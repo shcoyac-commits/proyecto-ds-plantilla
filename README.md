@@ -119,6 +119,51 @@ Este repo es la base para desarrollar 8 módulos de análisis:
 7. **Módulo 7** — Optimización (pricing, promociones)
 8. **Módulo 8** — Causal inference y A/B testing
 
+## 🔐 Cimiento 2 — Anonimización y Diagnóstico de Calidad (v0.2)
+
+### Datasets incluidos
+
+| Dataset | Origen | Filas | Estado |
+|---------|--------|-------|--------|
+| Leonali (retail) | SoftRes | ~500K | Anonimizado ✅ |
+| Farmacias | SoftRes | ~18.3M | Anonimizado ✅ |
+| Restaurante | SoftRes | múltiples tablas | Sin PII — sin cambios ✅ |
+
+Los datos originales **no están en el repositorio** (ver `.gitignore`).
+Los datos procesados están en `data/processed/`.
+
+### Cómo regenerar los datasets anonimizados
+
+Si tienes acceso a los archivos originales, puedes regenerar los datasets anonimizados así:
+
+**Requisitos:** ambiente `analytics` activado, archivos originales en `C:\Users\Said\Documents\Datasets\SoftRes\`
+
+```bash
+conda activate analytics
+```
+
+Luego ejecuta los notebooks en orden:
+notebooks/S3.2-anonimizacion-leonali.ipynb      # Anonimiza Leonali
+notebooks/S3.3-anonimizacion-farmacias.ipynb    # Anonimiza Farmacias
+
+Los archivos resultantes se guardan automáticamente en `data/processed/`.
+
+### Diagnóstico de calidad
+
+Los reportes Sweetviz están en `reports/` (HTML interactivo por dataset).
+El reporte consolidado está en `reports/S3.6_Diagnostico_Calidad_Consolidado.docx`.
+
+Para regenerar los reportes de calidad:
+notebooks/S3.6-reportes-calidad.ipynb
+
+### Hallazgos principales
+
+- **Leonali:** Dataset limpio. 13–15% ceros en algunas columnas numéricas (posiblemente reales).
+- **Farmacias:** `iva_unit` 62% ceros (medicamentos tasa 0% IVA en México — válido). `tipo_transaccion` 86% ceros — revisar.
+- **Restaurante:** Columna `comanda` 100% nula (eliminar). `precio` 27% ceros — revisar. 3 columnas sin valor analítico.
+
+
+
 ## 👤 Autor
 
 **Said Herrera Coyac**
@@ -130,5 +175,4 @@ Este repo es la base para desarrollar 8 módulos de análisis:
 MIT License - ver archivo [LICENSE](LICENSE) para detalles.
 
 ---
-
-**Versión:** v0.1 — Cimiento 1 completado (mayo 2026)
+**Versión:** v0.2 — Cimiento 2 completado (mayo 2026) | Cimiento 1: estructura base y Python DS
